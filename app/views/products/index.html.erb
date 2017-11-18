@@ -3,27 +3,52 @@
   
 
 <div class="container">
-
-	<% @products.each do |product| %>
-    <br/>
+      <br/>
     <table>
       <tr>
         <th>Product Name</th>
         <th>Cost</th>
         <th>Country of origin</th>
-        <th>Reviews</th>
       </tr>
+
+	<% @products.each do |product| %>
+
       <tr>
-        <td> <%= product.name %></td>
+        <td> <%= link_to product.name, product_path(product) %></td>
         <td> $ <%= product.cost %></td>
         <td><%= product.country %></td>
       </tr>
-    </table>
-  <% end %>
    
+  <% end %>
+   </table>
+
+
+<h2>Recently reviewed</h2>
+   
+   <br/>
+    <table>
+      <tr>
+        <th>Product Name</th>
+        <th>Cost</th>
+        <th>Country of origin</th>
+      </tr>
+
+  <% @most_reviewed.each do |product| %>
+
+      <tr>
+        <td> <%= link_to product.name, product_path(product) %></td>
+        <td> $ <%= product.cost %></td>
+        <td><%= product.country %></td>
+      </tr>
+   
+  <% end %>
+   </table>
+
+
+  <br>
+
+<%= link_to "New Product", new_product_path %>
+
     
   </div>
 
-<hr>
-
-<%= link_to "New Product", new_product_path %>

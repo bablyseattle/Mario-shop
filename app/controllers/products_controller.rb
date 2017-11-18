@@ -6,6 +6,9 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
+		@recent = @product.reviews.three_most_recent
+		@us_made = Product.us_made
+		@most_reviewed = Product.most_reviews
 		render :show
 	end
 

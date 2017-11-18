@@ -24,3 +24,25 @@ table {
     		    text-align: left;
     		    padding: 8px;
     		}
+
+    		.jumbotron {
+    background-color: salmon;
+  color: white; 
+}
+
+html, body{
+  background: -webkit-linear-gradient( bottom , #3aa0d1, #3ad2d1);
+background: linear-gradient(to top, #3aa0d1, #3ad2d1);
+  height:100%;
+  width:100%;
+}
+h1{
+  text-align:Center;
+  color:#f1f1f1;
+  text-shadow:0 2px 3px #333;
+}
+
+a{
+	color: white;
+	text-decoration-line: underline;
+}
