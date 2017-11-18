@@ -1,27 +1,27 @@
 <h1>Products</h1>
 
-<ul>
-  <% @products.each do |product| %>
-    <li><%= link_to product.name , product_path(product)%></li>
-  <% end %>
-</ul>
+  
 
 <div class="container">
-   
+
+	<% @products.each do |product| %>
     <br/>
     <table>
       <tr>
         <th>Product Name</th>
         <th>Cost</th>
         <th>Country of origin</th>
+        <th>Reviews</th>
       </tr>
-      <tr data-ng-repeat="customer in people | filter: table">
-        <td>{{customer.Name}}</td>
-        <td>{{customer.City}}</td>
-        <td>{{customer.Country}}</td>
+      <tr>
+        <td> <%= product.name %></td>
+        <td> $ <%= product.cost %></td>
+        <td><%= product.country %></td>
       </tr>
     </table>
-    <div data-pagination="" data-num-pages="numPages()" data-current-page="currentPage" data-max-size="maxSize" data-boundary-links="true"></div>
+  <% end %>
+   
+    
   </div>
 
 <hr>
