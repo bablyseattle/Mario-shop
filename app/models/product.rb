@@ -4,18 +4,7 @@ class Product < ActiveRecord::Base
 	validates :cost, :presence => true
 	validates :country, :presence => true
 
-scope :most_reviews, -> {(
-    select("products.id, products.name, count(reviews.id) as reviews_count")
-    .joins(:reviews)
-    .group("products.id")
-    .order("tasks_count DESC")
-    .limit(10)
-    )}
 
-
-
-def self.us_made
-    where(country: "United States of America")
-  end
+scope :us_made, -> { where({ country: ["USA", "usa", "United States of America"] }) }
 	
 end

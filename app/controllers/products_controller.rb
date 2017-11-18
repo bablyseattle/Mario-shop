@@ -1,14 +1,14 @@
+
+
 class ProductsController < ApplicationController
 	def index 
 		@products = Product.all
+		@us_made = Product.us_made
 		render :index
 	end
 
 	def show
-		@product = Product.find(params[:id])
-		@recent = @product.reviews.three_most_recent
-		@us_made = Product.us_made
-		@most_reviewed = Product.most_reviews
+		@product = Product.find(params[:id])		
 		render :show
 	end
 

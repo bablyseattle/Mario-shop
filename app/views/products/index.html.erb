@@ -23,27 +23,16 @@
    </table>
 
 
-<h2>Recently reviewed</h2>
-   
-   <br/>
-    <table>
-      <tr>
-        <th>Product Name</th>
-        <th>Cost</th>
-        <th>Country of origin</th>
-      </tr>
-
-  <% @most_reviewed.each do |product| %>
-
-      <tr>
-        <td> <%= link_to product.name, product_path(product) %></td>
-        <td> $ <%= product.cost %></td>
-        <td><%= product.country %></td>
-      </tr>
-   
+<h2>USA Products</h2>
+<% if @us_made.any? %>
+  <% @us_made.each do |product| %>
+    <ul>
+      <li><%= link_to product.name, product_path(product) %></li>
+    </ul>
   <% end %>
-   </table>
-
+<% else %>
+  <p>No US product right now!!!</p>
+<% end %>
 
   <br>
 
