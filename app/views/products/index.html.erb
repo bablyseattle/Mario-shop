@@ -6,6 +6,24 @@
   <% end %>
 </ul>
 
+<div class="container">
+   
+    <br/>
+    <table>
+      <tr>
+        <th>Product Name</th>
+        <th>Cost</th>
+        <th>Country of origin</th>
+      </tr>
+      <tr data-ng-repeat="customer in people | filter: table">
+        <td>{{customer.Name}}</td>
+        <td>{{customer.City}}</td>
+        <td>{{customer.Country}}</td>
+      </tr>
+    </table>
+    <div data-pagination="" data-num-pages="numPages()" data-current-page="currentPage" data-max-size="maxSize" data-boundary-links="true"></div>
+  </div>
+
 <hr>
 
 <%= link_to "New Product", new_product_path %>

@@ -1,23 +1,18 @@
-<h1><%= @product.name %></h1>
+<h1>What people are saying about <%= @product.name %></h1>
 
-<% if @product.reviews.any? %>
-  <h1>What people are saying about this product</h1>
-
+    <% if @product.reviews.any? %>
     <% @product.reviews.each do |review| %>
-
-    	<div class="wrapper">
-		    <div class="item">
-		      <h2 class="author"><%= review.author %>  <%= review.rating %>/5</h2>
-		      <div class="quote">
-		        <p><%= review.content %></p>
-		      </div>
-		  </div>
-		</div>
-        
-      
+      <div class="well reviews">
+        <h3><%= review.author%></h3>
+        <%= review.rating%> / 5 stars
+        <hr>
+        <blockquote class="blockquote">
+          <p>"<%= review.content %>"</p>
+        </blockquote>
+      </div>
     <% end %>
 <% else %>
-  <p>There are no reviews yet!</p>
+  <p>No reviews for this <%= @product.name %></p>
 <% end %>
 
 <p><%= link_to "Add a review", new_product_review_path(@product) %></p>
