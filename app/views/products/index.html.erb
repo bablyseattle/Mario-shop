@@ -34,6 +34,32 @@
   <p>No US product right now!!!</p>
 <% end %>
 
+<% if false %>
+
+<h2>Added recently</h2>
+<% if @recently_added.any? %>
+  <% @recently_added.each do |product| %>
+    <ul>
+      <li><%= link_to product.name, product_path(product) %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No recent product right now!!!</p>
+<% end %>
+
+<h2>Most reviewed</h2>
+<% if @most_reviewed.any? %>
+  <% @most_reviewed.each do |product| %>
+    <ul>
+      <li><%= link_to product.name, product_path(product) %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No most reviewed products right now!!!</p>
+<% end %>
+
+<% end %>
+ 
   <br>
 
 <%= link_to "New Product", new_product_path %>

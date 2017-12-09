@@ -17,10 +17,10 @@
           <p>Track <span class="label label-info">products ,reviews, costs</span> and much more.. </p>
         </div>
 
-      <% if flash[:notice] != nil %>
-        <div class="alert alert-success">
-          <%= flash[:notice] %>
-        </div>
+      <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+            <%= value %>
+      </div>
       <% end %>
 
       <%= yield %>

@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
 	def index 
 		@products = Product.all
 		@us_made = Product.us_made
+		@most_reviewed = Product.most_reviewed
+		@recently_added = Product.recently_added
 		render :index
 	end
 
@@ -20,6 +22,8 @@ class ProductsController < ApplicationController
 	def create
 	    @product = Product.new(product_params)
 	    if @product.save
+	      flash[:success] = "New product added"
+
 	      redirect_to  products_path
 	    else
 	      render :new
@@ -43,6 +47,7 @@ class ProductsController < ApplicationController
 	  def destroy
 	    @product = Product.find(params[:id])
 	    @product.destroy
+	    flash[:danger] = "Product deleted"
 	    redirect_to  products_path
 	  end
 
